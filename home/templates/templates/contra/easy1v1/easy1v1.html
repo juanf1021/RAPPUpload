@@ -1,0 +1,143 @@
+{% extends "layouts/layout-play.html" %}
+
+{% load static %}
+
+{% block body %}
+
+
+<section id="info">
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" id="nombres" onsubmit="return false">
+					<span class="login100-form-title p-b-34 p-t-27">
+						Rappers
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input autofocus maxlength="6" class="input100" type="text" name="nombre1" placeholder="Player 1" autocomplete="off">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input id="inp2" maxlength="6" class="input100" type="text" name="nombre2" placeholder="Player 2"
+                        autocomplete="off">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+
+					<div class="container-login100-form-btn">
+						<button id="send" class="login100-form-btn">
+							Continuar
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+</section>
+
+
+<section id="1v1">
+    <div class="full-container">
+    <div class="easy-container" id="easy-container">
+        <div class="video-container">
+            <video autoplay loop muted plays-inline class="back-video video" id="video1">
+                <source src="{% static 'hard/media/videos/purplesea.mp4' %}" type="video/mp4">
+            </video>
+            <video autoplay loop muted plays-inline class="back-video" id="video2">
+                <source src="{% static 'easy/media/videos/red.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="content">
+            <div class="start-container">
+                <div class="seconds-container">
+                    <h6 class="name first" id="name1">MC 1</h6>
+                    <h5 class="start" id="seconds">START</h2>
+                    <h6 class="name second" id="name2">MC 2</h6>
+                    <h6 id="damos">SE LO DAMOS EN...</h6>
+                </div>
+                <div class="palabra-container">
+                    <p id="palabra"></p>
+                </div>
+            </div>
+            <div class="buttons">
+            <div class="btns-play">
+                <div class="holder">
+                    <div data-role="controls">
+                        <button><i class="fa-solid fa-microphone"></i></button>
+                    </div>
+                </div>
+                <a class="btn-solid-lg page-scroll" id="play">Play</a>
+                <a class="btn-solid-lg page-scroll" id="restart">Restart</a>
+                <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+                <input type="range" value="100" id="volume" class="range-volume">
+            </div>
+            <div class="audio">
+                <select  class="audio-selection" name="audios" id="audios">
+                    {% for beat in beats %}
+                        <option class="beats"  data-duration="{{ beat.cambio }}"  value="{{ beat.beat.url }}" id="{{ beat.estallido }}">{{ beat.name }} - {{ beat.artist }}</option>     
+                    {% endfor %}
+                </select>
+                <div class="record-btns">
+                    <a class="btn-solid-lg page-scroll" id="play-recorder"><i class="fa-solid fa-play"></i> / <i class="fa-solid fa-pause"></i></a>
+                    <div data-role="recordings" class="dowload-object"></div>
+                </div>
+                <audio src="{{ first.beat.url }}" data-duration="{{ first.cambio }}" id="audio"></audio>
+                <audio src="{% static 'easy/audios/gritoTiempo.mp3' %}" id="grito01"></audio>
+            </div>
+           </div>   
+        </div>
+    </div>
+</div>
+    <div class="ir-container">
+        <div class="btn-words">
+            <a class="btn-solid-lg page-scroll" id="ir" href="#"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+    </div>
+    <div class="used-words-container" id="wordContainerHtml">
+    </div>
+    <div class="down-container">
+        <div class="btn-words">
+            <a class="btn-solid-lg page-scroll" id="volver" href="#easy-container"><i class="fa-solid fa-chevron-up"></i></a>
+       </div>
+    </div>
+
+    <link rel="stylesheet" href="{% static '1v1/styles/util.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/animate.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/animsition.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/animsition.min.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/hamburgers.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/hamburgers.min.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/daterangepicker.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/select2.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/select2.min.css' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    
+
+    <link rel="stylesheet" href="{% static '1v1/styles/material-design-iconic-font.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/material-design-iconic-font.min.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/font-awesome.min.css' %}">
+
+        <link rel="stylesheet" href="{% static '1v1/styles/main.css' %}">
+   
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="{% static 'easy/js/recorder.js' %}"></script>
+    <script src="{% static 'easy/js/functions.js' %}"></script>
+    <script src="{% static '1v1/js/1v1.js' %}"></script>
+    <!-- <script src="{% static 'easy/js/jqueryChange.js' %}"></script> -->
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layouts/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+     <!-- Header -->
+    <section>
+     <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1 class="presentation-text">LA MEJOR APP <br>PARA<span id="js-rotating">FREESTYLERS,RAPPERS, JUGADORES</span></h1>
+                            <p class="p-large">Nuestra aplicación te brinda diferentes modos de juego para entrenar y mejorar tus habilidades en el freestyle. ¡Prepárate para dominar el freestyle con RAPP!</p>
+                            <!-- <p>"El rap es una porqueria, cuando deja de ser arte" - Canserbero</p> -->
+                            <a class="btn-solid-lg page-scroll" href="#play"><i class="fas fa-play"></i>PLAY</a>
+                            <a class="btn-solid-lg page-scroll" href="https://cafecito.app/rapp4rappers"><i class="fa-solid fa-dragon"></i>DONATE</a>
+                        </div>
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="{% static 'home/media/rapper-00.png' %}" alt="alternative">
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+</section>
+    <!-- end of header -->
+
+<!-- start select section -->
+<section id="play">
+<div class="select-container">
+<div class="selec-container">
+    <div class="feature">
+        <img class="feature-img" src="{% static 'home/media/purple-4.jpg' %}" alt="">
+        <div class="content">
+            <h3>Easy Mode</h3>
+            <a class="btn-solid-lg page-scroll" href="{% url 'Easy' %}">Play</a>
+        </div>
+    </div>
+    <div class="feature">
+        <img class="feature-img" src="{% static 'home/media/purple-5.jpg' %}" alt="">
+        <div class="content">
+            <h3>Hard Mode</h3>
+            <a class="btn-solid-lg page-scroll" href="{% url 'Hard' %}">Play</a>
+        </div>
+    </div>
+    <div class="feature">
+        <img  class="feature-img"src="{% static 'home/media/purple-2.jpg' %}" alt="">
+        <div class="content">
+            <h3>Free Mode</h3>
+            <a class="btn-solid-lg page-scroll" href="{% url 'Free' %}">Play</a>
+        </div>
+    </div>
+    <div class="feature">
+        <img  class="feature-img"src="{% static 'home/media/purple-6.jpg' %}" alt="">
+        <div class="content">
+            <h3>1 VS 1</h3>
+            <a class="btn-solid-lg page-scroll" href="{% url 'Easy1v1' %}">Play</a>
+        </div>
+    </div>
+    <div class="feature">
+        <img  class="feature-img"src="{% static 'home/media/purple-3.jpg' %}" alt="">
+        <div class="content">
+            <!-- <h3>Multiplayer</h3> -->
+            <h3>Images</h3>
+            <a class="btn-solid-lg page-scroll" href="{% url 'Images' %}">Play</a>
+        </div>
+    </div>
+    <div class="feature">
+        <img  class="feature-img"src="{% static 'home/media/purple-3.jpg' %}" alt="">
+        <div class="content">
+            <h3>Multiplayer</h3>
+            <a class="btn-solid-lg page-scroll" href="{% url 'Images' %}">Play</a>
+        </div>
+    </div>
+    
+    
+</div>
+</div>
+</section>
+
+<!-- ends select section -->
+
+{% endblock %}

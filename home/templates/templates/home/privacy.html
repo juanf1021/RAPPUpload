@@ -1,0 +1,386 @@
+{% extends "layouts/layout-play.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<div class="all-privacy-container">
+    <div class="button-container">
+        <button class="button selected" onclick="selectButton(1)">Política de Privacidad</button>
+        <button class="button" onclick="selectButton(2)">Política de Cookies</button>
+        <div class="line"></div>
+    </div>
+    <div id="privacy" class="privacy-container">
+
+        <head>
+            <title>Política de Privacidad</title>
+        </head>
+
+        <body>
+            <h1>Política de Privacidad</h1>
+            <p>RAPP te informa sobre su Política de Privacidad con respecto al tratamiento y protección de los datos
+                personales de los
+                usuarios y clientes que puedan ser recopilados durante la navegación o contratación de servicios a
+                través
+                del sitio web
+                <a href="https://www.rappzone.com">www.rappzone.com</a>.
+            </p>
+            <p>En este sentido, el Titular garantiza el cumplimiento de la normativa vigente en Colombia en materia de
+                protección de
+                datos personales, en particular la Ley 1581 de 2012 y sus decretos reglamentarios. Además, RAPP cumple
+                con
+                las disposiciones
+                del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la
+                protección de
+                las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de
+                estos
+                datos (RGPD).</p>
+            <p>El uso del sitio web implica la aceptación de esta Política de Privacidad, así como de las condiciones
+                incluidas en el
+                Aviso Legal.</p>
+            <h2>Identidad del responsable</h2>
+            <p>Titular: Juan Felipe Hurtado Herrera<br>
+                NIF/CIF: NIF<br>
+                Domicilio: crra 14a #70a-27 Nor, Bogóta, Colombia.<br>
+                Correo electrónico: juandevpython15@gmail.com<br>
+                Sitio Web: <a href="https://www.rappzone.com">www.rappzone.com</a></p>
+            <h2>Principios aplicados en el tratamiento de datos</h2>
+            <p>En el tratamiento de tus datos personales, el Titular aplicará los siguientes principios que se ajustan a
+                las
+                exigencias
+                del nuevo reglamento europeo de protección de datos:</p>
+            <ul>
+                <li>Principio de licitud, lealtad y transparencia: El Titular siempre requerirá el consentimiento para
+                    el
+                    tratamiento
+                    de tus datos personales que puede ser para uno o varios fines específicos sobre los que te informará
+                    previamente
+                    con absoluta transparencia.</li>
+                <li>Principio de minimización de datos: El Titular te solicitará solo los datos estrictamente necesarios
+                    para el fin
+                    o los fines que los solicita.</li>
+                <li>Principio de limitación del plazo de conservación: Los datos se mantendrán durante el tiempo
+                    estrictamente necesario
+                    para el fin o los fines del tratamiento. El Titular te informará del plazo de conservación
+                    correspondiente según
+                    la finalidad. En el caso de suscripciones, el Titular revisará periódicamente las listas y eliminará
+                    aquellos
+                    registros inactivos durante un tiempo considerable.</li>
+                <li>Principio de integridad y confidencialidad: Tus datos serán tratados de tal manera que su seguridad,
+                    confidencialidad
+                    e integridad esté garantizada. Debes saber que el Titular toma las precauciones necesarias para
+                    evitar
+                    el acceso
+                    no autorizado o la divulgación indebida de los datos de los usuarios.</li>
+                <li>Principio de limitación de la finalidad: Los datos se recogerán con fines determinados, explícitos y
+                    legítimos, y
+                    no serán tratados de manera incompatible con dichos fines.</li>
+            </ul>
+            <h2>Recopilación de datos personales</h2>
+            <p>Para navegar por el sitio web no es necesario que facilites ningún dato personal. Los casos en los que sí
+                proporcionas
+                tus datos personales son los siguientes:</p>
+            <ul>
+                <li>Al contactar a través de los formularios de contacto o enviar un correo electrónico.</li>
+                <li>Al realizar un comentario en un artículo o página.</li>
+                <li>Al suscribirte a un boletín o newsletter que el Titular gestiona.</li>
+            </ul>
+            <p>El Titular informa que no tratará datos personales de personas menores de 18 años sin el consentimiento
+                necesario. En
+                caso de que se detecte el registro de un menor de 18 años, se procederá a su eliminación.</p>
+            <h2>Tus derechos</h2>
+            <p>El Titular te informa que sobre tus datos personales tienes derecho a:</p>
+            <ul>
+                <li>Solicitar el acceso a los datos almacenados.</li>
+                <li>Solicitar una rectificación o la cancelación.</li>
+                <li>Solicitar la limitación de su tratamiento.</li>
+                <li>Oponerte al tratamiento.</li>
+                <li>Solicitar la portabilidad de tus datos.</li>
+            </ul>
+            <p>Para ejercitar tus derechos de acceso, rectificación, cancelación, portabilidad y oposición, deberás
+                enviar
+                un correo
+                electrónico a juandevpython15@gmail.com junto con la prueba válida en derecho como una fotocopia del
+                D.N.I.
+                o equivalente.</p>
+            <h2>Aceptación y consentimiento</h2>
+            <p>El Usuario declara haber sido informado de las condiciones sobre protección de datos personales,
+                aceptando y
+                consintiendo
+                el tratamiento de los mismos por parte del Titular en la forma y para las finalidades indicadas en esta
+                Política de
+                Privacidad.</p>
+            <h2>Cambios en la Política de Privacidad</h2>
+            <p>El Titular se reserva el derecho a modificar la presente Política de Privacidad para adaptarla a
+                novedades
+                legislativas
+                o jurisprudenciales, así como a prácticas de la industria. Estas políticas estarán vigentes hasta que
+                sean
+                modificadas
+                por otras debidamente publicadas.</p>
+    </div>
+
+    <div id="cookies" class="privacy-container">
+        <h1>Política de Cookies</h1>
+        <p>
+            En esta web se utilizan cookies de terceros y propias para conseguir que tengas una mejor experiencia de
+            navegación, puedas compartir contenido en redes sociales y para que podamos obtener estadísticas de los
+            usuarios.
+        </p>
+        <p>
+            Puedes evitar la descarga de cookies a través de la configuración de tu navegador, evitando que las cookies
+            se
+            almacenen en tu dispositivo.
+        </p>
+        <p>
+            Como propietario de este sitio web, te comunico que no utilizamos ninguna información personal procedente de
+            cookies, tan sólo realizamos estadísticas generales de visitas que no suponen ninguna información personal.
+        </p>
+        <p>
+            Es muy importante que leas la presente política de cookies y comprendas que, si continúas navegando,
+            consideraremos que aceptas su uso.
+        </p>
+        <p>
+            Según los términos incluidos en el artículo 22.2 de la Ley 34/2002 de Servicios de la Sociedad de la
+            Información
+            y Comercio Electrónico, si continúas navegando, estarás prestando tu consentimiento para el empleo de los
+            referidos mecanismos.
+        </p>
+        <h2>Entidad Responsable</h2>
+        <p>
+            La entidad responsable de la recogida, procesamiento y utilización de tus datos personales, en el sentido
+            establecido por la Ley de Protección de Datos Personales es la página RAPP, propiedad de Juan Felipe Hurtado
+            Herrera – Cra 14a #70a-27 nor.
+        </p>
+        <h3>¿Qué son las cookies?</h3>
+        <p>
+            Las cookies son un conjunto de datos que un servidor deposita en el navegador del usuario para recoger la
+            información de registro estándar de Internet y la información del comportamiento de los visitantes en un
+            sitio
+            web. Es decir, se trata de pequeños archivos de texto que quedan almacenados en el disco duro del ordenador
+            y
+            que sirven para identificar al usuario cuando se conecta nuevamente al sitio web. Su objetivo es registrar
+            la
+            visita del usuario y guardar cierta información. Su uso es común y frecuente en la web ya que permite a las
+            páginas funcionar de manera más eficiente y conseguir una mayor personalización y análisis sobre el
+            comportamiento del usuario.
+        </p>
+        <h3>¿Qué tipos de cookies existen?</h3>
+        <p>
+            Las cookies utilizadas en nuestro sitio web, son de sesión y de terceros, y nos permiten almacenar y acceder
+            a
+            información relativa al idioma, el tipo de navegador utilizado, y otras características generales
+            predefinidas
+            por el usuario, así como seguir y analizar la actividad que lleva a cabo, con el objeto de introducir
+            mejoras y
+            prestar nuestros servicios de una manera más eficiente y personalizada.
+        </p>
+        <p>
+            Las cookies, en función de su permanencia, pueden dividirse en cookies de sesión o permanentes. Las que
+            expiran
+            cuando el usuario cierra el navegador. Las que expiran en función de cuando se cumpla el objetivo para el
+            que
+            sirven (por ejemplo, para que el usuario se mantenga identificado en los servicios de Juan Felipe Hurtado
+            Herrera) o bien cuando se borran manualmente.
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Caducidad</th>
+                    <th>Finalidad</th>
+                    <th>Clase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>__utma</td>
+                    <td>De Terceros (Google Analytics)</td>
+                    <td>2 años</td>
+                    <td>Se usa para distinguir usuarios y sesiones.</td>
+                    <td>No Exenta</td>
+                </tr>
+                <tr>
+                    <td>__utmb</td>
+                    <td>De Terceros (Google Analytics)</td>
+                    <td>30 minutos</td>
+                    <td>Se usa para determinar nuevas sesiones o visitas.</td>
+                    <td>No Exenta</td>
+                </tr>
+                <tr>
+                    <td>__utmc</td>
+                    <td>De Terceros (Google Analytics)</td>
+                    <td>Al finalizar la sesión</td>
+                    <td>Se configura para su uso con Urchin.</td>
+                    <td>No Exenta</td>
+                </tr>
+                <tr>
+                    <td>__utmz</td>
+                    <td>De Terceros (Google Analytics)</td>
+                    <td>6 meses</td>
+                    <td>Almacena el origen o la campaña que explica cómo el usuario ha llegado hasta la página web.</td>
+                    <td>No Exenta</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            Adicionalmente, en función de su objetivo, las cookies pueden clasificarse de la siguiente forma:
+        </p>
+        <ul>
+            <li>
+                <strong>Cookies de rendimiento:</strong> Este tipo de Cookie recuerda tus preferencias para las
+                herramientas
+                que se encuentran en los servicios, por lo que no tienes que volver a configurar el servicio cada vez
+                que lo
+                visitas.
+            </li>
+            <li>
+                <strong>Cookies de geo-localización:</strong> Estas cookies son utilizadas para averiguar en qué país te
+                encuentras cuando solicitas un servicio. Esta cookie es totalmente anónima y solo se utiliza para ayudar
+                a
+                orientar el contenido a tu ubicación.
+            </li>
+            <li>
+                <strong>Cookies de registro:</strong> Estas cookies se generan una vez que el usuario se ha registrado o
+                posteriormente ha abierto su sesión, y se utilizan para identificarle en los servicios con los
+                siguientes
+                objetivos:
+                <ul>
+                    <li>Mantener al usuario identificado de forma que, si cierra un servicio, el navegador o el
+                        ordenador y
+                        en otro momento u otro día vuelve a entrar en dicho servicio, seguirá identificado, facilitando
+                        así
+                        su navegación sin tener que volver a identificarse. Esta funcionalidad se puede suprimir si el
+                        usuario pulsa la funcionalidad [cerrar sesión], de forma que esta cookie se elimina y la próxima
+                        vez
+                        que entre en el servicio el usuario tendrá que iniciar sesión para estar identificado.</li>
+                    <li>Comprobar si el usuario está autorizado para acceder a ciertos servicios, por ejemplo, para
+                        participar en un concurso.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Cookies de analíticas:</strong> Cada vez que un usuario visita un servicio, una herramienta de
+                un
+                proveedor externo genera una cookie analítica en el ordenador del usuario. Esta cookie que solo se
+                genera en
+                la visita, servirá en próximas visitas para identificar de forma anónima al visitante. Los objetivos
+                principales que se persiguen son:
+                <ul>
+                    <li>Permitir la identificación anónima de los usuarios navegantes a través de la cookie (identifica
+                        navegadores y dispositivos, no personas) y por lo tanto la contabilización aproximada del número
+                        de
+                        visitantes y su tendencia en el tiempo.</li>
+                    <li>Identificar de forma anónima los contenidos más visitados y por lo tanto más atractivos para los
+                        usuarios.</li>
+                    <li>Saber si el usuario que está accediendo es nuevo o repite visita.</li>
+                </ul>
+                Importante: Salvo que decidas registrarte en un servicio, la cookie nunca irá asociada a ningún dato de
+                carácter personal que pueda identificarte. Dichas cookies solo serán utilizadas con propósitos
+                estadísticos
+                que ayuden a la optimización de la experiencia de los usuarios en el sitio.
+            </li>
+            <li>
+                <strong>Cookies de publicidad:</strong> Este tipo de cookies permiten ampliar la información de los
+                anuncios
+                mostrados a cada usuario anónimo en los servicios. Entre otros, se almacena la duración o frecuencia de
+                visualización de posiciones publicitarias, la interacción con las mismas o los patrones de navegación
+                y/o
+                comportamientos del usuario, ya que ayudan a conformar un perfil de interés publicitario. De este modo,
+                permiten ofrecer publicidad afín a los intereses del usuario.
+            </li>
+            <li>
+                <strong>Cookies publicitarias de terceros:</strong> Además de la publicidad gestionada por las webs, se
+                ofrecen a los anunciantes la opción de servir anuncios a través de terceros ("Ad-Servers"). De este
+                modo,
+                estos terceros pueden almacenar cookies enviadas desde los servicios, así como acceder a los datos que
+                en
+                ellas se guardan.
+            </li>
+        </ul>
+        <h2>¿Cómo puedo deshabilitar las cookies en mi navegador?</h2>
+        <p>
+            Se pueden configurar los diferentes navegadores para avisarte de la recepción de cookies y, si lo deseas,
+            impedir su instalación en tu equipo. Asimismo, puedes revisar en tu navegador qué cookies tienes instaladas
+            y
+            cuál es el plazo de caducidad de las mismas, pudiendo eliminarlas.
+        </p>
+        <p>
+            Para más información sobre la administración de las cookies en Google Chrome, visita <a
+                href="https://support.google.com/chrome/answer/95647?hl=es"
+                target="_blank">https://support.google.com/chrome/answer/95647?hl=es</a>
+        </p>
+        <p>
+            Para más información sobre la administración de las cookies en Internet Explorer, visita <a
+                href="http://windows.microsoft.com/es-es/windows-vista/cookies-frequently-asked-questions"
+                target="_blank">http://windows.microsoft.com/es-es/windows-vista/cookies-frequently-asked-questions</a>
+        </p>
+        <p>
+            Para más información sobre la administración de las cookies en Mozilla Firefox, visita <a
+                href="http://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we"
+                target="_blank">http://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we</a>
+        </p>
+        <p>
+            Para más información sobre la administración de las cookies en Safari, visita <a
+                href="https://support.apple.com/kb/PH19214?viewlocale=es_ES&locale=es_ES"
+                target="_blank">https://support.apple.com/kb/PH19214?viewlocale=es_ES&locale=es_ES</a>
+        </p>
+        <p>
+            Para más información sobre la administración de las cookies en Opera, visita <a
+                href="http://help.opera.com/Windows/11.50/es-ES/cookies.html"
+                target="_blank">http://help.opera.com/Windows/11.50/es-ES/cookies.html</a>
+        </p>
+        <p>
+        <p>
+            Si desea dejar de ser seguido por Google Analytics visite: <a href="http://tools.google.com/dlpage/gaoptout"
+                target="_blank">http://tools.google.com/dlpage/gaoptout</a>
+        </p>
+        <p>
+            Además, también puedes gestionar el almacén de cookies en tu navegador a través de herramientas como las
+            siguientes:
+        </p>
+        <ul>
+            <li>
+                <strong>Ghostery:</strong> <a href="https://www.ghostery.com/"
+                    target="_blank">https://www.ghostery.com/</a>
+            </li>
+            <li>
+                <strong>Your online choices:</strong> <a href="http://www.youronlinechoices.com/es/"
+                    target="_blank">http://www.youronlinechoices.com/es/</a>
+            </li>
+        </ul>
+        <h2>Actualización de la política de cookies</h2>
+        <p>
+            Es posible que actualicemos la Política de Cookies de nuestro sitio web, por eso te recomendamos revisar
+            esta
+            política cada vez que accedas a nuestro sitio con el objetivo de estar adecuadamente informado sobre cómo y
+            para
+            qué usamos las cookies.
+        </p>
+    </div>
+</div>
+<script>
+const privacy = document.getElementById('privacy');
+const cookies = document.getElementById('cookies');
+cookies.style.display = 'none';
+    function selectButton(buttonIndex) {
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach((button, index) => {
+            if (index === buttonIndex - 1) {
+                button.classList.add('selected');
+            } else {
+                button.classList.remove('selected');
+            }
+        });
+        if (buttonIndex === 2) {
+            privacy.style.display = 'none';
+            cookies.style.display = 'block';
+        } else if (buttonIndex === 1) {
+            privacy.style.display = 'block';
+            cookies.style.display = 'none';
+        }
+    }
+</script>
+
+
+{% endblock %}

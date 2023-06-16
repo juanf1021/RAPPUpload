@@ -1,0 +1,146 @@
+<!-- {% extends 'layouts/layout-play.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- start select section -->
+
+<section id="lobby-section">
+    <div class="select-container">
+        <div class="selec-container">
+            <div class="feature">
+                <img class="feature-img" src="{% static 'home/media/purple-4.jpg' %}" alt="">
+                <div class="content">
+                    <h3>Easy Mode</h3>
+                    <a id="join" class="btn-solid-lg page-scroll">Play</a>
+
+                </div>
+            </div>
+            <div class="feature">
+                <img class="feature-img" src="{% static 'home/media/purple-5.jpg' %}" alt="">
+                <div class="content">
+                    <h3>Hard mode</h3>
+                    <a class="btn-solid-lg page-scroll" href="{% url 'Hard' %}">Play</a>
+                </div>
+            </div>
+            <div class="feature">
+                <img class="feature-img" src="{% static 'home/media/purple-2.jpg' %}" alt="">
+                <div class="content">
+                    <h3>Free Mode</h3>
+                    <a class="btn-solid-lg page-scroll" href="{% url 'Free' %}">Play</a>
+                </div>
+            </div>
+            <div class="feature">
+                <img class="feature-img" src="{% static 'home/media/purple-6.jpg' %}" alt="">
+                <div class="content">
+                    <h3>1 VS 1</h3>
+                    <a class="btn-solid-lg page-scroll" href="{% url 'Easy1v1' %}">Play</a>
+                </div>
+            </div>
+            <div class="feature">
+                <img class="feature-img" src="{% static 'home/media/purple-3.jpg' %}" alt="">
+                <div class="content">
+                    <!-- <h3>Multiplayer</h3> -->
+                    <h3>Images</h3>
+                    <a class="btn-solid-lg page-scroll" href="{% url 'Images' %}">Play</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- <script  src="{% static 'multiplayer/js/voiceChat.js' %}"></script> -->
+</section>
+
+
+<section id="easy" class="multiplayer">
+    <div class="" id="all-new">
+        <div class="easy-container" id="easy-container">
+            <video autoplay loop muted plays-inline class="back-video">
+                <source src="{% static 'easy/media/videos/purple.mp4' %}" type="video/mp4">
+            </video>
+            <div class="content">
+                <div class="container-back">
+                    <a class="btn-solid-lg page-scroll btn-back" id="back-btn" onclick="history.back()"><i
+                            class="fa-solid fa-circle-arrow-left"></i></a>
+                </div>
+                <div class="start-container">
+                    <div class="centro">
+                        <div id="players" class="players left">
+                            <h8 id="player1"></h8>
+                        </div>
+                        <div class="seconds-container center" id="principal-text">
+                            <h5 class="start" id="seconds">START</h2>
+                        </div>
+                        <div class="players right">
+                            <h8 id="player2"></h8>
+                        </div>
+                    </div>
+                    <div class="palabra-container">
+                        <p id="palabra"></p>
+                    </div>
+                </div>
+                <div class="down-part">
+                    <div class="buttons multi">
+                        <div class="btns-play">
+                            <div class="holder">
+                                <div data-role="controls">
+                                    <button><i class="fa-solid fa-microphone"></i></button>
+                                </div>
+                            </div>
+                            <a class="btn-solid-lg page-scroll" id="play">Play</a>
+                            <a class="btn-solid-lg page-scroll" id="restart">Restart</a>
+                            <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+                            <input type="range" value="100" id="volume" class="range-volume">
+                            <div class="btn-words">
+                                <a class="btn-solid-lg page-scroll" id="volver" href="#header"><i
+                                        class="fa-solid fa-pen"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audio">
+                        <select class="audio-selection" name="audios" id="audios">
+                            {% for beat in beats %}
+                            <option class="beats" value="{{ beat.beat.url }}" id="{{ beat.estallido }}">{{ beat.name }}
+                                - {{ beat.artist }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="record-btns">
+                            <a class="btn-solid-lg page-scroll" id="play-recorder"><i class="fa-solid fa-play"></i> / <i
+                                    class="fa-solid fa-pause"></i></a>
+                            <div data-role="recordings" class="dowload-object"></div>
+                        </div>
+                        <audio src="{{ first.beat.url }}" id="audio"></audio>
+                        <audio src="{% static 'easy/audios/gritoTiempo.mp3' %}" id="grito01"></audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="used-words-container" id="wordContainerHtml">
+            <div id="wait-image" class="image-container">
+                <img class="img-fluid" src="{% static 'multiplayer/media/videos/rappx.png' %}" alt="alternative">
+                <p>"Music is like magic. There's a certain feeling you get when you real and you spit and people are
+                    feelin' your shit." - Eminem</p>
+            </div>
+        </div>
+        <div id="message"></div>
+        <button id="leave"></button>
+        <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+        <script src="{% static 'easy/js/recorder.js' %}"></script>
+        <script src="{% static 'multiplayer/js/multiEasy.js' %}"></script>
+        
+</section>
+
+<link rel="stylesheet" href="{% static 'multiplayer/styles/multiplayer.css' %}">
+
+<script src="{% static 'multiplayer/js/multiChannel.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'assets/AgoraRTC_N-4.17.0.js' %}"></script>
+
+    
+<script src="{% static 'multiplayer/js/voiceChat.js' %}"></script>
+
+
+
+{% endblock %} -->

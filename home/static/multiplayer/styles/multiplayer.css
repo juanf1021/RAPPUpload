@@ -1,0 +1,166 @@
+body{
+    overflow-x: hidden;
+}
+.easy-container .content .start-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.easy-container .content .start-container .centro {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.easy-container .content .start-container .centro .left{
+  margin-right: 150px;
+  /* background:linear-gradient(rgba(31, 28, 28, 0.24),rgba(5, 5, 5, 0.993)) ,url('../media/videos/IMG_7382.JPG'); */
+  background-image: url('../media/videos/IMG_7382.JPG');
+}
+
+.easy-container .content .start-container .centro .right{
+  margin-left: 150px;
+  /* background:linear-gradient(rgba(31, 28, 28, 0.24),rgba(61, 56, 56, 0.993)) ,url('../media/videos/bridge.jpg'); */
+  background-image: url('../media/videos/bridge.jpg');
+
+}
+.easy-container .content .start-container .centro .players h8{
+  margin: 0;
+  font-size: 3.5rem !important;
+  min-width: 0;
+  line-height: 3rem;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.easy-container .content .start-container .centro .players{
+
+   /* change this for users in future */
+  /* background:linear-gradient(rgba(0, 0, 0, 0.527),rgba(5, 5, 5, 0.993)) ,url('../media/videos/purple-3.jpg'); */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 590px !important;
+  height: 300px;
+  border-radius: 50%;
+  /* border: 5px solid #592ac5; */
+  background-color: black;
+  padding: 1rem;
+}
+
+/* fixing css for buttons */
+
+.multiplayer .easy-container .content {
+ margin-top: -25rem;
+}
+.multiplayer .easy-container .content .down-part{
+  margin-top: -19rem;
+}
+
+/* code for showing word definitions on side */
+
+.all-new{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.all-new .used-words-container{
+  width: 50% !important;
+}
+
+.all-new .easy-container .content .start-container .centro .left{
+  margin-right: 150px !important;
+}
+
+.all-new .easy-container .content .start-container .centro .right{
+  margin-left: 150px !important;
+}
+
+
+
+.all-new .easy-container .content .start-container .centro .players{
+ width: 500px !important;
+ height: 250px;
+ padding: 1rem;
+ margin-right: 50px;
+ margin-left: 50px;
+}
+
+
+
+.used-words-container .full-word {
+  margin: 0px 30px 30px 30px;
+  border: 4px solid var(--main-color);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.multiplayer .all-new .used-words-container{
+   margin-top: 55px;
+   padding-top: 15px;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.used-words-container .full-word{
+  flex-grow: 1;
+  max-height: 350px;
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  box-sizing: border-box;
+  /* margin: 10px; */
+}
+
+.used-words-container .full-word .word-element{
+  padding: 20px 5px 10px 10px;
+  overflow: hidden;
+}
+
+.used-words-container .full-word .definition-element{
+  padding: 0px 5px 10px 10px;
+  overflow: hidden;
+}
+
+
+/* //central container when words on right are displayed */
+
+.all-new .easy-container .content .start-container .seconds-container .preparate {
+  font-size: 120px;
+}
+.all-new .used-words-container img{
+  margin-top: 70px;
+}
+
+.all-new .used-words-container .image-container p{
+  font-size: 20px;
+  font: 1000 1.3rem/1.5rem "Montserrat", sans-serif;
+  margin: -50px 5px 0 10px;
+}
+
+/* animation */
+
+.easy-container{
+  width: 97%;
+  transition: width 0.5s ease-out;
+}
+
+.used-words-container{
+  transition: width 0.5s ease-in-out;
+}
+
+
+.all-new .easy-container{
+  width: 80%;
+}
+
+.all-new .used-words-container{
+  width: 20%;
+}

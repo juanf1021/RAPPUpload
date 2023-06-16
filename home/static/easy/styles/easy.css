@@ -1,0 +1,538 @@
+:root {
+  --secondary-color: #3a2d80;
+  --main-color: #592ac5;
+  --third-color: #a408ff;
+  --black: #1a1c22;
+  --letter: #444444;
+  --white-color: #fdfdfd;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+}
+.easy-container {
+  height: 80vh;
+  margin: 100px 30px 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.easy-container .back-video {
+  object-fit: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  filter: brightness(50%);
+}
+
+.easy-container .content {
+  width: 100%;
+  /* display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column; */
+}
+
+.easy-container .content .start-container .seconds-container h5 {
+  font-size: 220px;
+}
+
+.easy-container .content .start-container .seconds-container .start {
+  font-size: 220px;
+}
+
+.easy-container .content .start-container .seconds-container .preparate {
+  font-size: 140px;
+}
+
+.easy-container .content .start-container .seconds-container .seconds {
+  font-size: 220px;
+}
+
+.easy-container .content .start-container .seconds-container .damos {
+  font-size: 80px;
+}
+
+.easy-container .content .start-container .seconds-container .ultima {
+  font-size: 150px;
+}
+
+.easy-container .content .start-container .seconds-container .tiempo {
+  font-size: 150px;
+}
+
+
+.easy-container .content .start-container {
+  margin-top: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.easy-container .content .start-container .seconds-container h6 {
+  position: relative;
+  margin: 0;
+  font-size: 20px;
+}
+
+.easy-container .content .seconds-container {
+  width: 100%;
+  height: 180px;
+}
+.easy-container .content .palabra-container {
+  width: 100%;
+  height: 60px;
+}
+
+.easy-container .content .damos-container .damos {
+  display: none;
+  font-size: 70px;
+}
+
+.easy-container .content p {
+  font-size: 70px;
+}
+
+.easy-container .content a {
+  margin: 30px 10px;
+  font-size: 15px;
+}
+
+.easy-container .content a:hover {
+  color: var(--white-color);
+}
+
+.easy-container .content .buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.easy-container .content .buttons .btns-play {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.easy-container .content .buttons .audio {
+  align-self: center;
+}
+
+.easy-container .content .audio select {
+  appearance: none;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+.easy-container .content .audio select {
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border: 1px solid var(--main-color);
+  border-radius: 50px;
+  padding: 0.6em 0.5em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  text-align: center;
+}
+
+.easy-container .content .audio .audio-selection option {
+  background-color: var(--secondary-color);
+}
+
+.easy-container .content .audio select::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--white-color);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  font-size: 100px;
+}
+
+/* .easy-container .content .audio .audio-selection .beats{
+    margin-bottom: 15px;
+    padding: 100px;
+} */
+
+.used-words-container .full-word {
+  margin-left: 50px;
+  margin-bottom: 30px;
+  border: 4px solid var(--main-color);
+  padding: 40px;
+  margin-right: 50px;
+  border-radius: 10px;
+}
+
+.used-words-container .full-word:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 10px var(--main-color);
+}
+
+.used-words-container .full-word .word-element {
+  font-size: 35px;
+  margin-bottom: 18px;
+}
+
+.used-words-container .full-word .definition-element {
+  font-size: 25px;
+  color: var(--white-color);
+  line-height: 30px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+  display: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type="range"]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--main-color);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: var(--main-color);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--main-color);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: var(--main-color);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: var(--main-color);
+}
+input[type="range"]::-ms-fill-upper {
+  background: var(--main-color);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: var(--main-color);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 6rem;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--main-color);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 10px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: var(--main-color);
+}
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: var(--main-color);
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: var(--main-color);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type="range"]::-ms-fill-upper {
+  background: var(--main-color);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type="range"]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: var(--main-color);
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: var(--main-color);
+}
+
+.easy-container .content .buttons .btns-play .range-volume {
+  margin-left: 5px;
+}
+.btn-words {
+  /* margin-top: 10px; */
+  width: 8px;
+}
+.btn-words .btn-solid-lg {
+  width: 40px;
+}
+
+.btn-words a {
+  padding: 10px;
+}
+
+.down-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .easy-container .content .seconds-container {
+    height: 100px;
+  }
+
+  .easy-container .content .start-container .seconds-container h6 {
+    font-size: 8rem;
+  }
+
+  .easy-container .content .start-container .seconds-container h5 {
+    font-size: 13rem;
+  }
+
+  .easy-container .content .palabra-container {
+    height: auto;
+    margin-top: 3rem;
+  }
+
+  .easy-container .content .start-container {
+    margin-top: 100px;
+  }
+
+  /* .container-back{
+      margin-top: -10000px;
+      background: #3A2D80;
+    } */
+}
+
+/* recorder */
+.audio .record-btns {
+  height: 100px;
+}
+.audio .record-btns .btn-solid-lg {
+  padding: 15px 8px;
+}
+.audio .record-btns .fa-play {
+  font-size: 1rem;
+}
+[data-role="controls"] > button {
+  border: none;
+  background: none;
+  color: var(--white-color);
+  margin-left: 5px;
+}
+
+[data-role="controls"] > button:hover {
+  background-color: var(--main-color);
+  border-radius: 20px;
+}
+[data-role="controls"] > button[data-recording="true"] {
+  border: none;
+  background-color: #ff2038;
+  border-radius: 20px;
+}
+[data-role="recordings"] > .row {
+  width: auto;
+  height: auto;
+  padding: 20px;
+}
+[data-role="recordings"] > .row > audio {
+  outline: none;
+  visibility: hidden;
+  display: none;
+}
+
+[data-role="recordings"] > .row > a:hover {
+  text-decoration: none;
+}
+
+.record-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.last-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container-back {
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+  margin-top: -10px;
+}
+
+.container-back .btn-back {
+  padding: 0px;
+  background: none;
+  border: none;
+}
+/* [data-role="recordings"] > .row > a:active {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0093E9), to(#80D0C7));
+  background-image: -o-linear-gradient(top, #0093E9 0%, #80D0C7 100%);
+  background-image: linear-gradient(180deg, #0093E9 0%, #80D0C7 100%);
+} */
+
+.ir-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* .big-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .start-container .image-container {
+  margin-left: 200px;
+  margin-top: -100px;
+} */
+
+.start-container .image-container img {
+  border-radius: 20%;
+}

@@ -1,0 +1,55 @@
+{% extends "layouts/layout-play.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<!-- contact section -->
+<section class="contact_section layout_padding" id="contactanos">
+    <div class="container">
+        <h2 class="font-weight-bold">CONTÁCTANOS</h2>
+        <div class="row">
+            <div class="col-md-8 mr-auto">
+                <form onsubmit="validateForm(); return false;">
+                    <div class="contact_form-container">
+                        <div>
+                            <div>
+                                <input type="text" id="name" placeholder="Nombre" autocomplete="off"
+                                    onfocus="handleFocus(event)" />
+                                <div class="validateMessage nameMessage">
+                                    <p> <i class="fa-solid fa-triangle-exclamation"></i>Por favor ingrese su nombre</p>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" id="phone" placeholder="Número de Teléfono" autocomplete="off"
+                                    onfocus="handleFocus(event)" />
+                            </div>
+                            <div>
+                                <input type="email" id="email" placeholder="Email" autocomplete="off"
+                                    onfocus="handleFocus(event)" />
+                                <div class="validateMessage emailMessage">
+                                    <p> <i class="fa-solid fa-triangle-exclamation"></i>Por favor ingrese su email</p>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" id="message" placeholder="Mensaje" autocomplete="off"
+                                    onfocus="handleFocus(event)" />
+                                <div class="validateMessage messageMessage">
+                                    <p> <i class="fa-solid fa-triangle-exclamation"></i>Por favor ingrese un mesaje</p>
+                                </div>
+                            </div>
+                            <div class="mt-5">
+                                <button type="submit">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end contact section -->
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="{% static 'home/js/formSubmit.js'%}"></script>
+
+{% endblock %}

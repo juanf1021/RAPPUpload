@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>{% block title %}Play{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="{% static 'styles/style.css' %}"> -->
+
+    <link rel="stylesheet" href="{% static 'easy/styles/easy.css' %}">
+    <link rel="stylesheet" href="{% static '1v1/styles/easy1v1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link href="{% static 'home/styles/contact.css' %}" rel="stylesheet">
+
+    <link href="{% static 'home/styles/privacy.css' %}" rel="stylesheet">
+
+    <!-- test style  -->
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="{% static 'home/styles/test/bootstrap.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'home/styles/test/fontawesome-all.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'home/styles/test/swiper.css' %}" rel="stylesheet">
+    <link href="{% static 'home/styles/test/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'home/styles/test/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'home/styles/test/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'home/styles/responsive.css' %}" rel="stylesheet">
+
+    <script src="{% static 'easy/js/jquery-3.6.0.min.js' %}"></script>
+    <!-- end test style -->
+</head>
+
+<body>
+    <section>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <a class="navbar-brand logo-text page-scroll" href="{% url 'Home' %}">RAPP</a>
+
+            <!-- Image Logo -->
+            <!-- <a class="navbar-brand logo-image" href="index.html">RAPP</a>  -->
+
+            <!-- Mobile Menu Toggle Button -->
+            <input class="navbar-toggler checkbtn" id="check" type="checkbox" data-toggle="collapse"
+            >
+            <label for="check" class="checkbtn"><i class="fa-solid fa-bars"></i></label>
+            
+            </input>
+            <ul class="navbar-responsive">
+                <a href="{% url 'Home' %}"><li>HOME</li></a>
+                <a href="{% url 'Contact' %}"><li>CONTACTO</li></a>
+                <a href="{% url 'Privacy' %}"><li>POLÍTICAS</li></a>
+                <a href="{% url 'Terms' %}"><li>TÉRMINOS</li></a>
+            </ul>
+            <!-- end of mobile menu toggle button -->
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'Home' %}">HOME <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'Home' %}">PLAY</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#preview">PREVIEW</a>
+                </li> -->
+
+                    <!-- Dropdown Menu -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle page-scroll" id="navbarDropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">LEGAL</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'Terms' %}"><span class="item-text">TÉRMINOS Y
+                                    CONDICIONES</span></a>
+                            <div class="dropdown-items-divide-hr"></div>
+                            <a class="dropdown-item" href="{% url 'Privacy' %}"><span class="item-text">POLÍTICA DE
+                                    PRIVACIDAD</span></a>
+                        </div>
+                    </li>
+                    <!-- end of dropdown menu -->
+
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'Contact' %}">CONTACT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> <!-- end of navbar -->
+        <!-- end of navbar -->
+    </section>
+
+    <section>
+        <div>
+            {% block body %}
+
+            {% endblock %}
+        </div>
+    </section>
+    <section class="foot">
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <h4>RAPP:</h4>
+                        <ul>
+                            <li><a href="#">Conócenos</a></li>
+                            <li><a href="{% url 'Terms' %}">Términos y Condiciones</a></li>
+                            <li><a href="{% url 'Privacy' %}">Política de Privacidad</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Developer:</h4>
+                        <ul>
+                            <li><a target="_blank" href="https://www.linkedin.com/in/juan-felipe-hurtado-6263861a7/">-
+                                    Juan Felipe Hurtado</a></li>
+                        </ul>
+                    </div>
+                    <!-- <div class="footer-col">
+                    <h4>Online Shop</h4>
+                    <ul>
+                        <li><a href="#">Watch</a></li>
+                        <li><a href="#">Bag</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Dress</a></li>
+                    </ul>
+                </div> -->
+                    <div class="footer-col">
+                        <h4>Síguenos:</h4>
+                        <div class="social-links">
+                            <a href="https://www.tiktok.com/@rappzone?_t=8d5kFZywWHN&_r=1"><i
+                                    class="fab fa-tiktok"></i></a>
+                            <a href="https://twitter.com/rappzone_"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com/rappzone_?igshid=MzRlODBiNWFlZA=="><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+
+    <!-- Scripts -->
+    <script src="{% static 'home/js/jquery.min.js' %}"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <!-- <script src="{% static 'home/js/popper.min.js' %}"></script> -->
+    <!-- Popper tooltip library for Bootstrap -->
+    <!-- <script src="{% static 'home/js/bootstrap.min.js' %}"></script>  -->
+    <!-- Bootstrap framework -->
+    <script src="{% static 'home/js/jquery.easing.min.js' %}"></script>
+    <!-- jQuery Easing for smooth scrolling between anchors -->
+    <!-- <script src="{% static 'home/js/swiper.min.js' %}"></script> -->
+    <!-- Swiper for image and text sliders -->
+    <script src="{% static 'home/js/jquery.magnific-popup.js' %}"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="{% static 'home/js/morphext.min.js' %}"></script> <!-- Morphtext rotating text in the header -->
+    <script src="{% static 'home/js/validator.min.js' %}"></script>
+    <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="{% static 'home/js/scripts.js' %}"></script> <!-- Custom scripts -->
+</body>
+
+</html>

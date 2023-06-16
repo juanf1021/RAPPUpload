@@ -1,0 +1,87 @@
+{% extends "layouts/layout-play.html" %}
+
+{% load static %}
+
+{% block body %}
+
+
+<section>
+    <div class="easy-container libre-container" id="easy-container">
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="{% static 'hard/media/videos/purpletunel.mp4' %}" type="video/mp4">
+        </video>
+        <div class="content libre-content">
+            <div class="container-back">
+                <a class="btn-solid-lg page-scroll btn-back" id="back-btn"><i class="fa-solid fa-circle-arrow-left"></i></a>
+            </div>
+            <div class="container-back">
+                <a class="btn-solid-lg page-scroll btn-back" onclick="history.back()" id="back-btn-full"><i class="fa-solid fa-circle-arrow-left"></i></a>
+            </div>
+            <div class="start-container">
+                <div class="seconds-container">
+                    <h5 class="start" id="seconds">START</h2>
+                    <h6 id="damos">SE LO DAMOS EN...</h6>
+                </div>
+                <div class="palabra-container">
+                    <p id="palabra"></p>
+                </div>
+            </div>
+            <div class="buttons">
+            <div class="btns-play">
+                <div class="holder">
+                    <div data-role="controls">
+                        <button><i class="fa-solid fa-microphone"></i></button>
+                    </div>
+                </div>
+                <div class="btns-time-container">
+                    <a class="btn-solid-lg page-scroll btns-time btn-libre" data-time="1" >1min</a>
+                    <a class="btn-solid-lg page-scroll btns-time btn-libre" data-time="2" >2min</a>
+                    <a class="btn-solid-lg page-scroll btns-time btn-libre" data-time="3" >3min</a>
+                    <a class="btn-solid-lg page-scroll btns-time btn-libre" data-time="4" >4min</a>
+                </div>
+                <div class="play-btns">
+
+                    <a class="btn-solid-lg page-scroll" id="play">Play</a>
+                    <a class="btn-solid-lg page-scroll" id="restart">Restart</a>
+                    <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+                    <input type="range" value="100" id="volume" class="range-volume">
+                </div>
+            </div>
+            <div class="audio">
+                <select  class="audio-selection" name="audios" id="audios">
+                    {% for beat in beats %}
+                        <option class="beats" data-duration ="{{beat.duracion}}" value="{{ beat.beat.url }}" id="{{ beat.estallido }}">{{ beat.name }} - {{ beat.artist }}</option>     
+                    {% endfor %}
+                </select>
+                    <div class="record-btns">
+                        <a class="btn-solid-lg page-scroll" id="play-recorder"><i class="fa-solid fa-play"></i> / <i class="fa-solid fa-pause"></i></a>
+                        <div data-role="recordings" class="dowload-object"></div>
+
+                    </div>
+                <audio src="{{ first.beat.url }}" id="audio"></audio>
+                <audio src="{% static 'easy/audios/gritoTiempo.mp3' %}" id="grito01"></audio>
+            </div>
+           </div>   
+        </div>
+    </div>
+    <div class="ir-container">
+        <div class="btn-words">
+            <a class="btn-solid-lg page-scroll" id="ir" href="#"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+    </div>
+    <div class="used-words-container" id="wordContainerHtml">
+    </div>
+    <div class="down-container">
+        <div class="btn-words">
+            <a class="btn-solid-lg page-scroll" id="volver" href="#easy-container"><i class="fa-solid fa-chevron-up"></i></a>
+       </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="{% static 'easy/js/recorder.js' %}"></script>
+    <script src="{% static 'free/js/free.js' %}"></script>
+    <!-- <script src="{% static 'easy/js/jqueryChange.js' %}"></script> -->
+</section>
+
+
+
+{% endblock %}

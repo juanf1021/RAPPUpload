@@ -1,0 +1,73 @@
+
+
+{% load static %}
+
+<!-- {% block body %} -->
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'easy/styles/test.css' %}">
+</head>
+<body>
+    <div class="form-container" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <h6 style="font-size: 3rem;">Do you want to add words to the database?</h6>
+        <form method="post" class="form" style="background-color: gainsboro; height: 20vh; display: flex; justify-content: center; align-items: center; width: 100%;">
+            {% csrf_token %}
+            <input type="submit" value="Add Word to Database" style="padding: 1rem;">
+        </form>
+        </div>  
+        <script src="{% static 'easy/js/test.js' %}"></script>    
+    <!-- start select section -->
+<!-- <section id="play">
+    <div class="select-container">
+    <div class="container">
+        <div class="feature">
+            <img class="feature-img" src="{% static 'home/media/purple-4.jpg' %}" alt="">
+            <div class="content">
+                <h3>Easy Mode</h3>
+                <a class="btn-solid-lg page-scroll" href="{% url 'Easy' %}">Play</a>
+            </div>
+        </div>
+        <div class="feature">
+            <img class="feature-img" src="{% static 'home/media/purple-5.jpg' %}" alt="">
+            <div class="content">
+                <h3>Hard mode</h3>
+                <a class="btn-solid-lg page-scroll" href="{% url 'Easy' %}">Play</a>
+            </div>
+        </div>
+        <div class="feature">
+            <img  class="feature-img"src="{% static 'home/media/purple-2.jpg' %}" alt="">
+            <div class="content">
+                <h3>Questions</h3>
+                <a class="btn-solid-lg page-scroll" href="{% url 'Easy' %}">Play</a>
+            </div>
+        </div>
+        <div class="feature">
+            <img  class="feature-img"src="{% static 'home/media/purple-3.jpg' %}" alt="">
+            <div class="content">
+                <h3>Free Mode</h3>
+                <a class="btn-solid-lg page-scroll" href="{% url 'Easy' %}">Play</a>
+            </div>
+        </div>
+        <div class="feature">
+            <img  class="feature-img"src="{% static 'home/media/purple-3.jpg' %}" alt="">
+            <div class="content">
+                <h3>Multiplayer</h3>
+                <a class="btn-solid-lg page-scroll" href="{% url 'Easy' %}">Play</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section> -->
+    
+    <!-- ends select section -->
+</body>
+</html>
+
+<!-- {% endblock %} -->
