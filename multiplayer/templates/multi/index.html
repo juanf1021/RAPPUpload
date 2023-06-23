@@ -1,0 +1,25 @@
+{% extends 'layouts/layout-play.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="join-container">
+  <h1 class="text-center">Rapea con otros en línea</h1>
+  <p class="texto text-center">Únete o Crea una partida ingresando el nombre del Chat-Room</p>
+  <form class="container" method="POST" action="">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="texto1 form-label">Nombre de la Sala:</label>
+      <input placeholder="Ej: Sala1"  type="text" autocomplete="off" autofocus class="form-control" name="room" id="room" aria-describedby="emailHelp">
+    </div>
+
+    <button type="submit" class="d-flex align-items-center justify-content-center text-center btn-solid-lg">CREAR / UNIRSE</button>
+  </form>
+</div>
+
+
+<link rel="stylesheet" href="{% static 'multiplayer/styles/join.css' %}">
+
+
+{% endblock %}

@@ -1082,7 +1082,14 @@
 
 /* Min-width width 992px */
 @media (min-width: 992px) {
-
+	.select-container .selec-container{
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		height: 100vh;
+		width: 100%;	
+		  margin: 0 auto;
+	
+	}
 	.header .text-container .presentation-text{
 		align-items:center;
 	}
@@ -1285,7 +1292,7 @@
 
 /* Min-width width 1200px */
 @media (min-width: 1200px) {
-	
+
 	.header .text-container .presentation-text{
 		align-items:flex-start;
 	}

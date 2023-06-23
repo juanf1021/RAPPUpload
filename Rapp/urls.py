@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('play', include('play.urls')),
-    #path('multi', include('multiplayer.urls')),
+    path('multi/', include('multiplayer.urls')),
 ]
 
 

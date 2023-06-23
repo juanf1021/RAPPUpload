@@ -3,13 +3,39 @@ from msilib.schema import AppId
 from ntpath import join
 from unicodedata import name
 from django.shortcuts import render, get_object_or_404 
-from agora_token_builder import RtcTokenBuilder
+# from agora_token_builder import RtcTokenBuilder
 from django.http import JsonResponse
 from .models import Channel
+from home.models import Beats
 from home import models
 import random 
 import time
+from django.shortcuts import redirect, render
+from .models import Chat
 # Create your views here.
+def index(request):
+    if request.method == 'POST':
+        room = request.POST['room']
+        get_room = Chat.objects.filter(room_name=room)
+        if get_room:
+            c = get_room[0]
+            number = c.allowed_users
+            if int(number) < 2:
+                number = 2
+                return redirect(f'video/{room}/join/')
+        else:
+            create = Chat.objects.create(room_name=room,allowed_users=1)
+            if create:
+                return redirect(f'video/{room}/created/')
+    return render(request,'multi/index.html')
+
+
+def video(request,room,created):
+    beats = Beats.objects.all()
+    first_beat = Beats.objects.first()
+    return render(request,'multi/video.html',{'room':room,'created':created, 'beats':beats, 'first_beat':first_beat})
+
+
 
 def token(request,channel):
     appId= 'a041f9bba2124bb88d28d6c084fa9b0f'
@@ -25,10 +51,6 @@ def token(request,channel):
     return JsonResponse({'token':token, 'uid':uid}, safe=False)
     #return JsonResponse({'channel':channelName}, safe=False)
 
-def lobby(request):
-    beats = models.Beats.objects.all()
-    first_beat = models.Beats.objects.first()
-    return render(request,"multi/lobby.html", {"beats":beats, "first": first_beat})
 
 def room(request):
     return render(request, 'multi/room.html')

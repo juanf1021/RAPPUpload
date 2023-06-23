@@ -1,0 +1,244 @@
+{% extends 'layouts/layout-play.html' %}
+{% load static %}
+
+{% block body %}
+<section id="easy" class="multiplayer">
+  <div class="" id="all-new">
+    <div class="easy-container" id="easy-container">
+      <video autoplay loop muted plays-inline class="back-video">
+        <source src="{% static 'easy/media/videos/purple.mp4' %}" type="video/mp4">
+      </video>
+      <div class="content">
+        <div class="container-back">
+          <a class="btn-solid-lg page-scroll btn-back" id="back-btn" onclick="history.back()"><i
+              class="fa-solid fa-circle-arrow-left"></i></a>
+        </div>
+        <div class="start-container">
+          <div class="centro">
+            <div id="players" class="players left">
+              <h8 id="player1"></h8>
+            </div>
+            <div class="seconds-container center" id="principal-text">
+              <h5 class="start" id="seconds">START</h2>
+            </div>
+            <div class="players right">
+              <h8 id="player2"></h8>
+            </div>
+          </div>
+          <div class="palabra-container">
+            <p id="palabra"></p>
+          </div>
+        </div>
+        <div class="down-part">
+          <div class="buttons multi">
+            <div class="btns-play">
+              <div class="holder">
+                <div data-role="controls">
+                  <button><i class="fa-solid fa-microphone"></i></button>
+                </div>
+              </div>
+              <a class="btn-solid-lg page-scroll" id="play">Play</a>
+              <a class="btn-solid-lg page-scroll" id="restart">Restart</a>
+              <i class="fa-solid fa-volume-high" id="volume-icon"></i>
+              <input type="range" value="100" id="volume" class="range-volume">
+              <div class="btn-words">
+                <a class="btn-solid-lg page-scroll" id="volver" href="#header"><i class="fa-solid fa-pen"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="audio">
+            <select class="audio-selection" name="audios" id="audios">
+              {% for beat in beats %}
+              <option class="beats" value="{{ beat.beat.url }}" id="{{ beat.estallido }}">{{ beat.name }}
+                - {{ beat.artist }}</option>
+              {% endfor %}
+            </select>
+            <div class="record-btns">
+              <a class="btn-solid-lg page-scroll" id="play-recorder"><i class="fa-solid fa-play"></i> / <i
+                  class="fa-solid fa-pause"></i></a>
+              <div data-role="recordings" class="dowload-object"></div>
+            </div>
+            <audio src="{{ first.beat.url }}" id="audio"></audio>
+            <audio src="{% static 'easy/audios/gritoTiempo.mp3' %}" id="grito01"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="used-words-container" id="wordContainerHtml">
+      <div id="wait-image" class="image-container">
+        <img class="img-fluid" src="{% static 'multiplayer/media/videos/rappx.png' %}" alt="alternative">
+        <p>"Music is like magic. There's a certain feeling you get when you real and you spit and people are
+          feelin' your shit." - Eminem</p>
+      </div>
+    </div>
+    <div id="message"></div>
+    <button id="leave"></button>
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="{% static 'easy/js/recorder.js' %}"></script>
+    <script src="{% static 'multiplayer/js/multiEasy.js' %}"></script>
+
+</section>
+<section>
+  <div class="container">
+    <div class="row py-2">
+      <div class="col-sm">
+        <video height="300" id="ours"></video>
+      </div>
+      <div class="col-sm">
+        <video height="300" id="remote"></video>
+      </div>
+    </div>
+  </div>
+  <button id="call" style="display: none" class="btn btn-outline-primary my-3 mx-3">Call</button>
+  <button id="camera">Mute</button>
+</section>
+<script>
+  let iceServers = {
+    iceServers: [
+      { urls: "stun:stun.services.mozilla.com" },
+      { urls: "stun:stun.l.google.com:19302" },
+    ],
+  };
+  const our_video = document.getElementById("ours");
+  const remote_video = document.getElementById("remote");
+  const call_btn = document.getElementById("call");
+  let stream;
+  let rtcpeerconnection;
+  const created = "{{ created }}";
+  const room = "{{ room }}";
+  let isCreated;
+  let camera = document.getElementById("camera");
+
+  camera.onclick = () => {
+    if (stream.getTracks()[1].enabled == true) {
+      stream.getTracks()[1].enabled = false;
+      camera.innerText = "Unmute";
+    } else {
+      stream.getTracks()[1].enabled = true;
+      camera.innerText = "Mute";
+    }
+  };
+
+  const ws = new WebSocket("ws://127.0.0.1:8000/ws/");
+  ws.onopen = () => {
+    console.log("WebSocket connection opened");
+    ws.send(JSON.stringify({ command: "join_room", room: room }));
+
+    if (created === "created") {
+      isCreated = true;
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((s) => {
+        console.log(s);
+        stream = s;
+        our_video.srcObject = s;
+        our_video.onloadeddata = () => {
+          our_video.play();
+        };
+      });
+      console.log(isCreated);
+    } else {
+      isCreated = false;
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((s) => {
+        stream = s;
+        our_video.srcObject = s;
+        our_video.onloadeddata = () => {
+          our_video.play();
+        };
+        ws.send(JSON.stringify({ command: "join", room: room }));
+      });
+      console.log(isCreated);
+    }
+  };
+
+  ws.onmessage = (e) => {
+    const data = JSON.parse(e.data);
+    console.log(data);
+    if (data.command === "join") {
+      if (isCreated) {
+        call_btn.style.display = "block";
+      }
+    } else if (data.command === "offer") {
+      if (!isCreated) {
+        createAnswer(data.offer);
+      }
+    } else if (data.command === "answer") {
+      if (isCreated) {
+        rtcpeerconnection.setRemoteDescription(data.answer);
+        console.log("Answer set as remote description");
+      }
+    } else if (data.command === "candidate") {
+      if (data.iscreated !== isCreated) {
+        const iceCandidate = new RTCIceCandidate(data.candidate);
+        rtcpeerconnection.addIceCandidate(iceCandidate);
+      }
+    }
+  };
+
+  call_btn.onclick = () => {
+    createOffer();
+  };
+
+  function createOffer() {
+    console.log("Offer started");
+    rtcpeerconnection = new RTCPeerConnection({
+      iceServers: [
+        { urls: "stun:stun.services.mozilla.com" },
+        { urls: "stun:stun.l.google.com:19302" },
+      ]
+    });
+    rtcpeerconnection.onicecandidate = onIceCandidateFunc;
+    rtcpeerconnection.ontrack = onTrackFunc;
+    stream.getTracks().forEach((track) => {
+      rtcpeerconnection.addTrack(track, stream);
+    });
+    rtcpeerconnection.createOffer().then((offer) => {
+      rtcpeerconnection.setLocalDescription(offer);
+      ws.send(JSON.stringify({ command: "offer", offer: offer, room: room }));
+    });
+  }
+
+  function createAnswer(offer) {
+    console.log("Answer started");
+    rtcpeerconnection = new RTCPeerConnection({
+      iceServers: [
+        { urls: "stun:stun.services.mozilla.com" },
+        { urls: "stun:stun.l.google.com:19302" },
+      ]
+    });
+    rtcpeerconnection.onicecandidate = onIceCandidateFunc;
+    rtcpeerconnection.ontrack = onTrackFunc;
+    stream.getTracks().forEach((track) => {
+      rtcpeerconnection.addTrack(track, stream);
+    });
+    rtcpeerconnection.setRemoteDescription(offer);
+    rtcpeerconnection.createAnswer().then((answer) => {
+      rtcpeerconnection.setLocalDescription(answer);
+      ws.send(JSON.stringify({ command: "answer", answer: answer, room: room }));
+    });
+  }
+
+  function onIceCandidateFunc(e) {
+    if (e.candidate) {
+      ws.send(
+        JSON.stringify({
+          command: "candidate",
+          candidate: e.candidate,
+          iscreated: isCreated,
+          room: room,
+        })
+      );
+    }
+  }
+
+  function onTrackFunc(e) {
+    remote_video.srcObject = e.streams[0];
+    remote_video.onloadedmetadata = () => {
+      remote_video.play();
+    };
+  }
+</script>
+<link rel="stylesheet" href="{% static 'multiplayer/styles/multiplayer.css' %}">
+
+<script src="{% static 'easy/js/recorder.js' %}"></script>
+<script src="{% static 'multiplayer/js/multiEasy.js' %}"></script>
+
+{% endblock %}
