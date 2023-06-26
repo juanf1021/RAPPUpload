@@ -33,7 +33,7 @@ def index(request):
 def video(request,room,created):
     beats = Beats.objects.all()
     first_beat = Beats.objects.first()
-    return render(request,'multi/video.html',{'room':room,'created':created, 'beats':beats, 'first_beat':first_beat})
+    return render(request,'multi/video.html',{'room':room,'created':created, 'beats':beats, 'first':first_beat})
 
 
 

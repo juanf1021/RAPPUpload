@@ -37,8 +37,6 @@ let principalTxt = document.getElementById("principal-text")
 window.onload = async function () {
   let response = await fetch(`/play/data`);
   datos = await response.json();
-  console.error(" ka;jsdlokajsdlokasd");
-  console.log(principalTxt);
 };
 document.addEventListener("DOMContentLoaded", () => {
   nonVisible(playRecorder);

@@ -37,7 +37,8 @@
                   <button><i class="fa-solid fa-microphone"></i></button>
                 </div>
               </div>
-              <a class="btn-solid-lg page-scroll" id="play">Play</a>
+              <!-- Activa el botón cuando tu amigo se una al chat -->
+              <a class="btn-solid-lg page-scroll" id="activa">Play</a>
               <a class="btn-solid-lg page-scroll" id="restart">Restart</a>
               <i class="fa-solid fa-volume-high" id="volume-icon"></i>
               <input type="range" value="100" id="volume" class="range-volume">
@@ -92,153 +93,13 @@
   <button id="call" style="display: none" class="btn btn-outline-primary my-3 mx-3">Call</button>
   <button id="camera">Mute</button>
 </section>
-<script>
-  let iceServers = {
-    iceServers: [
-      { urls: "stun:stun.services.mozilla.com" },
-      { urls: "stun:stun.l.google.com:19302" },
-    ],
-  };
-  const our_video = document.getElementById("ours");
-  const remote_video = document.getElementById("remote");
-  const call_btn = document.getElementById("call");
-  let stream;
-  let rtcpeerconnection;
-  const created = "{{ created }}";
-  const room = "{{ room }}";
-  let isCreated;
-  let camera = document.getElementById("camera");
 
-  camera.onclick = () => {
-    if (stream.getTracks()[1].enabled == true) {
-      stream.getTracks()[1].enabled = false;
-      camera.innerText = "Unmute";
-    } else {
-      stream.getTracks()[1].enabled = true;
-      camera.innerText = "Mute";
-    }
-  };
+<input type="hidden" id="roomData" data-room="{{ room }}" data-created="{{ created }}">
 
-  const ws = new WebSocket("ws://127.0.0.1:8000/ws/");
-  ws.onopen = () => {
-    console.log("WebSocket connection opened");
-    ws.send(JSON.stringify({ command: "join_room", room: room }));
-
-    if (created === "created") {
-      isCreated = true;
-      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((s) => {
-        console.log(s);
-        stream = s;
-        our_video.srcObject = s;
-        our_video.onloadeddata = () => {
-          our_video.play();
-        };
-      });
-      console.log(isCreated);
-    } else {
-      isCreated = false;
-      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((s) => {
-        stream = s;
-        our_video.srcObject = s;
-        our_video.onloadeddata = () => {
-          our_video.play();
-        };
-        ws.send(JSON.stringify({ command: "join", room: room }));
-      });
-      console.log(isCreated);
-    }
-  };
-
-  ws.onmessage = (e) => {
-    const data = JSON.parse(e.data);
-    console.log(data);
-    if (data.command === "join") {
-      if (isCreated) {
-        call_btn.style.display = "block";
-      }
-    } else if (data.command === "offer") {
-      if (!isCreated) {
-        createAnswer(data.offer);
-      }
-    } else if (data.command === "answer") {
-      if (isCreated) {
-        rtcpeerconnection.setRemoteDescription(data.answer);
-        console.log("Answer set as remote description");
-      }
-    } else if (data.command === "candidate") {
-      if (data.iscreated !== isCreated) {
-        const iceCandidate = new RTCIceCandidate(data.candidate);
-        rtcpeerconnection.addIceCandidate(iceCandidate);
-      }
-    }
-  };
-
-  call_btn.onclick = () => {
-    createOffer();
-  };
-
-  function createOffer() {
-    console.log("Offer started");
-    rtcpeerconnection = new RTCPeerConnection({
-      iceServers: [
-        { urls: "stun:stun.services.mozilla.com" },
-        { urls: "stun:stun.l.google.com:19302" },
-      ]
-    });
-    rtcpeerconnection.onicecandidate = onIceCandidateFunc;
-    rtcpeerconnection.ontrack = onTrackFunc;
-    stream.getTracks().forEach((track) => {
-      rtcpeerconnection.addTrack(track, stream);
-    });
-    rtcpeerconnection.createOffer().then((offer) => {
-      rtcpeerconnection.setLocalDescription(offer);
-      ws.send(JSON.stringify({ command: "offer", offer: offer, room: room }));
-    });
-  }
-
-  function createAnswer(offer) {
-    console.log("Answer started");
-    rtcpeerconnection = new RTCPeerConnection({
-      iceServers: [
-        { urls: "stun:stun.services.mozilla.com" },
-        { urls: "stun:stun.l.google.com:19302" },
-      ]
-    });
-    rtcpeerconnection.onicecandidate = onIceCandidateFunc;
-    rtcpeerconnection.ontrack = onTrackFunc;
-    stream.getTracks().forEach((track) => {
-      rtcpeerconnection.addTrack(track, stream);
-    });
-    rtcpeerconnection.setRemoteDescription(offer);
-    rtcpeerconnection.createAnswer().then((answer) => {
-      rtcpeerconnection.setLocalDescription(answer);
-      ws.send(JSON.stringify({ command: "answer", answer: answer, room: room }));
-    });
-  }
-
-  function onIceCandidateFunc(e) {
-    if (e.candidate) {
-      ws.send(
-        JSON.stringify({
-          command: "candidate",
-          candidate: e.candidate,
-          iscreated: isCreated,
-          room: room,
-        })
-      );
-    }
-  }
-
-  function onTrackFunc(e) {
-    remote_video.srcObject = e.streams[0];
-    remote_video.onloadedmetadata = () => {
-      remote_video.play();
-    };
-  }
-</script>
+<script src="{% static 'multiplayer/js/multiWeb.js' %}"></script>
 <link rel="stylesheet" href="{% static 'multiplayer/styles/multiplayer.css' %}">
 
-<script src="{% static 'easy/js/recorder.js' %}"></script>
-<script src="{% static 'multiplayer/js/multiEasy.js' %}"></script>
+<!-- <script src="{% static 'easy/js/recorder.js' %}"></script>
+<script src="{% static 'multiplayer/js/multiEasy.js' %}"></script> -->
 
 {% endblock %}

@@ -29,6 +29,45 @@ class VideoChat(AsyncJsonWebsocketConsumer):
                 'candidate':content['candidate'],
                 'iscreated':content['iscreated']
             })
+        elif(content['command'] == 'play'):
+            await self.channel_layer.group_send(content['room'],{
+                'type':'play.message',
+            })
+        elif(content['command'] == 'pause'):
+            await self.channel_layer.group_send(content['room'],{
+                'type':'pause.message'
+            })
+        elif(content['command'] == 'restart'):
+            await self.channel_layer.group_send(content['room'],{
+                'type':'restart.message'
+            })
+        elif(content['command'] == 'changeAudio'):
+            await self.channel_layer.group_send(content['room'],{
+                'type': 'changeAudio.message',
+                'src' : content['src']
+            })
+
+    async def play_message(self,event):
+        await self.send_json({
+            'command':'play'
+        })
+
+    async def pause_message(self, event):
+        await self.send_json({
+            'command':'pause'
+        })
+
+    async def restart_message(self,event):
+        await self.send_json({
+            'command':'restart'
+        })
+
+    async def changeAudio_message(self, event):
+        await self.send_json({
+            'command':'changeAudio',
+            'src': event['src']
+        })
+
     async def join_message(self,event):
         await self.send_json({
             'command':'join'
